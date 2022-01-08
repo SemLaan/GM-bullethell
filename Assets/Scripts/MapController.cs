@@ -28,4 +28,22 @@ public class MapController : MonoBehaviour
     {
         return GridPositionToWorldPosition(new Vector2Int(x, y));
     }
+
+    /// <summary>
+    /// Checks if the given grid position is out of bounds and returns it back into bounds if it is.
+    /// </summary>
+    /// <param name="gridPosition"></param>
+    /// <returns></returns>
+    public Vector2Int ReturnToGridBounds(Vector2Int gridPosition)
+    {
+        if (gridPosition.x < 0)
+            gridPosition.x = 0;
+        if (gridPosition.x >= mapSizeInTiles.x)
+            gridPosition.x = mapSizeInTiles.x - 1;
+        if (gridPosition.y < 0)
+            gridPosition.y = 0;
+        if (gridPosition.y >= mapSizeInTiles.y)
+            gridPosition.y = mapSizeInTiles.y - 1;
+        return gridPosition;
+    }
 }

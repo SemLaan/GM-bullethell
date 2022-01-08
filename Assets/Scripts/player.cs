@@ -55,6 +55,7 @@ public class player : MonoBehaviour
                 gridPosition.y += -1;
                 break;
         }
+        gridPosition = mapController.ReturnToGridBounds(gridPosition);
         UpdatePosition();
     }
 }
