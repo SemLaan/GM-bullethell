@@ -19,6 +19,13 @@ public class MapController : MonoBehaviour
         Vector2 worldPosition = (gridPosition * pixelsPerTile) - (mapSizeInPixels / 2);
         // Making sure the position returned is in the middle of the tile
         worldPosition += new Vector2(pixelsPerTile, pixelsPerTile) / 2;
+        // Making sure the position is relative to the grid position
+        worldPosition += (Vector2) transform.position;
         return worldPosition;
+    }
+
+    public Vector2 GridPositionToWorldPosition(int x, int y)
+    {
+        return GridPositionToWorldPosition(new Vector2Int(x, y));
     }
 }
