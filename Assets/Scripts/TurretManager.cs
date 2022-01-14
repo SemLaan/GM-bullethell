@@ -27,4 +27,12 @@ public class TurretManager : MonoBehaviour
             turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(mapController.mapSizeInTiles.x, i), Quaternion.Euler(0, 0, 90)));
         }
     }
+
+    public void LaunchBullet(GameObject bulletPrefab)
+    {
+        GameObject turret = turrets[Random.Range(0, turrets.Count)];
+        GameObject bullet = Instantiate(bulletPrefab, turret.transform.position, turret.transform.rotation);
+        Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+        bulletRigidbody.velocity = 4 * turret.transform.up;
+    }
 }
