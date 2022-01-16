@@ -18,12 +18,12 @@ public class TurretManager : MonoBehaviour
         // Placing the turrets
         for (int i = 0; i < mapController.mapSizeInTiles.x; i++)
         {
-            turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(i, -1), Quaternion.Euler(0, 0, 90)));
-            turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(i, mapController.mapSizeInTiles.y), Quaternion.Euler(0, 0, 90)));
+            turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(i, -1), Quaternion.Euler(0, 0, 0)));
+            turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(i, mapController.mapSizeInTiles.y), Quaternion.Euler(0, 0, 180)));
         }
         for (int i = 0; i < mapController.mapSizeInTiles.y; i++)
         {
-            turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(-1, i), Quaternion.Euler(0, 0, 90)));
+            turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(-1, i), Quaternion.Euler(0, 0, -90)));
             turrets.Add(Instantiate(turretPrefab, mapController.GridPositionToWorldPosition(mapController.mapSizeInTiles.x, i), Quaternion.Euler(0, 0, 90)));
         }
     }
@@ -33,6 +33,6 @@ public class TurretManager : MonoBehaviour
         GameObject turret = turrets[Random.Range(0, turrets.Count)];
         GameObject bullet = Instantiate(bulletPrefab, turret.transform.position, turret.transform.rotation);
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-        bulletRigidbody.velocity = 4 * turret.transform.up;
+        bulletRigidbody.velocity = 50 * turret.transform.up;
     }
 }
