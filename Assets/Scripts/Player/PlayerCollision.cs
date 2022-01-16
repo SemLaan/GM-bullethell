@@ -5,12 +5,18 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private LayerMask bulletLayer;
+    private PlayerHealth playerHealth;
+
+    private void Awake()
+    {
+        playerHealth = GetComponent<PlayerHealth>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (bulletLayer == (bulletLayer | (1 << collision.gameObject.layer)))
         {
-            print("collided with bullet");
+            playerHealth.removeHealth(1);
         }
     }
 }

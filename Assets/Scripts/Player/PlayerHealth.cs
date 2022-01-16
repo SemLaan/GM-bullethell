@@ -17,6 +17,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void gameOver()
     {
-
+        print("you lost");
     }
 }
