@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{
+    left,
+    right,
+    up,
+    down
+}
+
 public class player : MonoBehaviour
 {
     private MapController mapController;
     private Controls controls;
     private Vector2Int gridPosition;
-
-    private enum Direction
-    {
-        left,
-        right,
-        up,
-        down
-    }
 
     private void Awake()
     {
