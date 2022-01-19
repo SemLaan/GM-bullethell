@@ -44,7 +44,7 @@ public class TurretManager : MonoBehaviour
 
     public void LaunchBullet(GameObject bulletPrefab)
     {
-        GameObject turret = allTurrets[UnityEngine.Random.Range(0, turrets.Count)];
+        GameObject turret = allTurrets[UnityEngine.Random.Range(0, allTurrets.Count)];
         GameObject bullet = Instantiate(bulletPrefab, turret.transform.position, turret.transform.rotation);
         Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
         bulletRigidbody.velocity = 50 * turret.transform.up;
