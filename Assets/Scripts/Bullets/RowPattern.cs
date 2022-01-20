@@ -6,7 +6,17 @@ public class RowPattern : IPattern
 {
     public void CreateBulletPattern(int bullets, GameObject bulletPrefab, TurretManager turretManager, MapController mapController)
     {
-        Direction wall = (Direction)Random.Range(0, 4);
+        // Randomizing which wall the pattern should be created on
+        Direction wall;
+        bool updown = Random.value > (mapController.mapSizeInTiles.y / ((float)mapController.mapSizeInTiles.x + mapController.mapSizeInTiles.y));
+        if (updown)
+        {
+            wall = Random.value > 0.5 ? Direction.up : Direction.down;
+        }
+        else
+        {
+            wall = Random.value > 0.5 ? Direction.left : Direction.right;
+        }
         int startOfRow;
         if (wall == Direction.up || wall == Direction.down) // if wall is up or down
         {
