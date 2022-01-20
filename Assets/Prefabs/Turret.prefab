@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3198576175620490974}
   - component: {fileID: 3198576175620490975}
+  - component: {fileID: 7306455652926022410}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac54a50dda9be9d4db90eb499829b0d8, type: 3}
-  m_Color: {r: 0.9245283, g: 0.06541473, b: 0.06541473, a: 1}
+  m_Color: {r: 0.24160098, g: 0.9254902, b: 0.066666655, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,3 +83,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7306455652926022410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198576175620490972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee197036bd0f23740b9a745bd1891655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningColor: {r: 0.9056604, g: 0.11534355, b: 0.11534355, a: 1}
