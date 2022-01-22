@@ -9,7 +9,9 @@ public class BulletManager : MonoBehaviour
     [SerializeField] private GameObject basicBulletPrefab;
     private List<IPattern> bulletPatterns;
 
-    private float timer = 0f;
+    private float timeSinceStart = 0f;
+    private float patternTimer = 0f;
+    private float bulletTimer = 0f;
 
     private void Awake()
     {
@@ -21,11 +23,34 @@ public class BulletManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        timer += Time.fixedDeltaTime;
-        if (timer >= 0.7)
+        // Getting the current difficulty and updating all the timers
+        float difficulty = CurrentDifficulty();
+        timeSinceStart += Time.fixedDeltaTime;
+        patternTimer += Time.fixedDeltaTime;
+        bulletTimer += Time.fixedDeltaTime;
+        // Checking if an individual bullet should be launched
+        if (bulletTimer >= 1f / difficulty)
         {
-            timer -= 0.7f;
+            bulletTimer -= 1f / difficulty;
+            turretManager.LaunchBullet(basicBulletPrefab);
+        }
+        // Checking if a pattern should be launched
+        if (patternTimer >= 2f / difficulty)
+        {
+            patternTimer -= 2f / difficulty;
             bulletPatterns[0].CreateBulletPattern(6, basicBulletPrefab, turretManager, mapController);
+        }
+    }
+
+    private float CurrentDifficulty()
+    {
+        if (timeSinceStart < 10f)
+        {
+            return 0.75f;
+        }
+        else
+        {
+            return timeSinceStart / 10;
         }
     }
 }
