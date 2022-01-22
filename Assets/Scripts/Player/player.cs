@@ -21,11 +21,20 @@ public class player : MonoBehaviour
         mapController = FindObjectOfType<MapController>();
         gridPosition = new Vector2Int(3, 3);
         controls = new Controls();
-        controls.Enable();
         controls.Gameplay.Up.performed += _ => Move(Direction.up);
         controls.Gameplay.Down.performed += _ => Move(Direction.down);
         controls.Gameplay.Left.performed += _ => Move(Direction.left);
         controls.Gameplay.Right.performed += _ => Move(Direction.right);
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     private void Start()
