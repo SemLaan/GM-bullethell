@@ -16,7 +16,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (bulletLayer == (bulletLayer | (1 << collision.gameObject.layer)))
         {
-            playerHealth.removeHealth(1);
+            playerHealth.RemoveHealth(1);
         }
     }
 }

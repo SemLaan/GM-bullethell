@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private string gameOverSceneName;
     [SerializeField] private int health;
     [SerializeField] private Text healthDisplay;
 
-    public void removeHealth(int amount)
+    public void RemoveHealth(int amount)
     {
         health -= amount;
         healthDisplay.text = "Health: " + health;
         if (health <= 0)
         {
-            gameOver();
+            GameOver();
         }
     }
 
-    private void gameOver()
+    private void GameOver()
     {
-        print("you lost");
+        SceneManager.LoadScene(gameOverSceneName);
     }
 }
