@@ -42,7 +42,7 @@ public class BulletManager : MonoBehaviour
             bulletPatterns[0].CreateBulletPattern(6, basicBulletPrefab, turretManager, mapController);
         }
         // Checking if the player won
-        if (timeSinceStart > 10 && !winText.activeInHierarchy)
+        if (timeSinceStart > 30 && !winText.activeInHierarchy)
         {
             winText.SetActive(true);
         }
