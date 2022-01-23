@@ -14,6 +14,10 @@ public class TurretManager : MonoBehaviour
     private void Awake()
     {
         mapController = FindObjectOfType<MapController>();
+    }
+
+    private void Start()
+    {
         allTurrets = new List<TurretController>();
         turrets = new Dictionary<Direction, List<TurretController>>();
         foreach (Direction direction in Enum.GetValues(typeof(Direction)))
