@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     [SerializeField] private GameObject basicBulletPrefab;
-    [SerializeField] private GameObject winText;
     [Header("Bullets per second")]
     [SerializeField] private float maxBulletDifficulty;
     [Header("Bullet patterns per second")]
@@ -46,11 +45,6 @@ public class BulletManager : MonoBehaviour
         {
             patternTimer -= 2f / patternDifficulty;
             bulletPatterns[0].CreateBulletPattern(6, basicBulletPrefab, turretManager, mapController);
-        }
-        // Checking if the player won
-        if (timeSinceStart > 30 && !winText.activeInHierarchy)
-        {
-            winText.SetActive(true);
         }
     }
 
