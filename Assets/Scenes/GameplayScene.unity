@@ -388,6 +388,7 @@ MonoBehaviour:
   gameOverSceneName: GameOverScene
   health: 3
   healthDisplay: {fileID: 2006376186}
+  invincibilityDuration: 1.5
 --- !u!1 &269596012
 GameObject:
   m_ObjectHideFlags: 0

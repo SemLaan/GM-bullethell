@@ -9,14 +9,20 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private string gameOverSceneName;
     [SerializeField] private int health;
     [SerializeField] private Text healthDisplay;
+    [SerializeField] private float invincibilityDuration;
+    private float invincibilityStart = -10f;
 
     public void RemoveHealth(int amount)
     {
-        health -= amount;
-        healthDisplay.text = "Health: " + health;
-        if (health <= 0)
+        if (invincibilityStart + invincibilityDuration < Time.timeSinceLevelLoad)
         {
-            GameOver();
+            invincibilityStart = Time.timeSinceLevelLoad;
+            health -= amount;
+            healthDisplay.text = "Health: " + health;
+            if (health <= 0)
+            {
+                GameOver();
+            }
         }
     }
 
