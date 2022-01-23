@@ -9,12 +9,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private string gameOverSceneName;
     [SerializeField] private GameObject[] healthDisplay;
     [SerializeField] private float invincibilityDuration;
+    private AudioSource getHitSound;
     private float invincibilityStart = -10f;
     private int health;
 
     private void Awake()
     {
         health = healthDisplay.Length;
+        getHitSound = GetComponent<AudioSource>();
     }
 
     public void RemoveHealth(int amount)
@@ -27,6 +29,10 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)
             {
                 GameOver();
+            }
+            else
+            {
+                getHitSound.Play();
             }
         }
     }
