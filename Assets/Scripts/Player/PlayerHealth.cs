@@ -7,10 +7,15 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private string gameOverSceneName;
-    [SerializeField] private int health;
-    [SerializeField] private Text healthDisplay;
+    [SerializeField] private GameObject[] healthDisplay;
     [SerializeField] private float invincibilityDuration;
     private float invincibilityStart = -10f;
+    private int health;
+
+    private void Awake()
+    {
+        health = healthDisplay.Length;
+    }
 
     public void RemoveHealth(int amount)
     {
@@ -18,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         {
             invincibilityStart = Time.timeSinceLevelLoad;
             health -= amount;
-            healthDisplay.text = "Health: " + health;
+            healthDisplay[health].SetActive(false);
             if (health <= 0)
             {
                 GameOver();
