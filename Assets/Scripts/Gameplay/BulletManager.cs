@@ -6,6 +6,10 @@ public class BulletManager : MonoBehaviour
 {
     [SerializeField] private GameObject basicBulletPrefab;
     [SerializeField] private GameObject winText;
+    [Header("Bullets per second")]
+    [SerializeField] private float maxBulletDifficulty;
+    [Header("Bullet patterns per second")]
+    [SerializeField] private float maxPatternDifficulty;
     private TurretManager turretManager;
     private MapController mapController;
     private List<IPattern> bulletPatterns;
@@ -26,19 +30,21 @@ public class BulletManager : MonoBehaviour
     {
         // Getting the current difficulty and updating all the timers
         float difficulty = CurrentDifficulty();
+        float bulletDifficulty = difficulty > maxBulletDifficulty ? maxBulletDifficulty : difficulty;
+        float patternDifficulty = difficulty > maxPatternDifficulty ? maxPatternDifficulty : difficulty;
         timeSinceStart += Time.fixedDeltaTime;
         patternTimer += Time.fixedDeltaTime;
         bulletTimer += Time.fixedDeltaTime;
         // Checking if an individual bullet should be launched
-        if (bulletTimer >= 1f / difficulty)
+        if (bulletTimer >= 1f / bulletDifficulty)
         {
-            bulletTimer -= 1f / difficulty;
+            bulletTimer -= 1f / bulletDifficulty;
             turretManager.LaunchBullet(basicBulletPrefab);
         }
         // Checking if a pattern should be launched
-        if (patternTimer >= 2f / difficulty)
+        if (patternTimer >= 2f / patternDifficulty)
         {
-            patternTimer -= 2f / difficulty;
+            patternTimer -= 2f / patternDifficulty;
             bulletPatterns[0].CreateBulletPattern(6, basicBulletPrefab, turretManager, mapController);
         }
         // Checking if the player won
