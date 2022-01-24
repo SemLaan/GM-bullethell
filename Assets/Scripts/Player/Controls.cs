@@ -71,6 +71,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""2380277d-4387-45c6-a94f-4ade5aef2dd5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -128,6 +137,65 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Space"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1b1798c-3067-48cb-a948-e3a32896006a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PauseMenu"",
+            ""id"": ""c8c775a7-51ab-40ab-9d75-21ff25416ffb"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""4e9a23ba-aaba-4008-b558-23f645547430"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Space"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3c5d4a2-1335-40a2-aa4b-58aef82e6da6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""43d388c3-b058-4f6f-ad00-31ea00ad9751"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdf53efd-b087-41df-bb32-832648885622"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Space"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -141,6 +209,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Gameplay_Up = m_Gameplay.FindAction("Up", throwIfNotFound: true);
         m_Gameplay_Down = m_Gameplay.FindAction("Down", throwIfNotFound: true);
         m_Gameplay_Space = m_Gameplay.FindAction("Space", throwIfNotFound: true);
+        m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
+        // PauseMenu
+        m_PauseMenu = asset.FindActionMap("PauseMenu", throwIfNotFound: true);
+        m_PauseMenu_Escape = m_PauseMenu.FindAction("Escape", throwIfNotFound: true);
+        m_PauseMenu_Space = m_PauseMenu.FindAction("Space", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +278,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Up;
     private readonly InputAction m_Gameplay_Down;
     private readonly InputAction m_Gameplay_Space;
+    private readonly InputAction m_Gameplay_Escape;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -214,6 +288,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Up => m_Wrapper.m_Gameplay_Up;
         public InputAction @Down => m_Wrapper.m_Gameplay_Down;
         public InputAction @Space => m_Wrapper.m_Gameplay_Space;
+        public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +313,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Space.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpace;
                 @Space.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpace;
                 @Space.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpace;
+                @Escape.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -257,16 +335,66 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Space.started += instance.OnSpace;
                 @Space.performed += instance.OnSpace;
                 @Space.canceled += instance.OnSpace;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // PauseMenu
+    private readonly InputActionMap m_PauseMenu;
+    private IPauseMenuActions m_PauseMenuActionsCallbackInterface;
+    private readonly InputAction m_PauseMenu_Escape;
+    private readonly InputAction m_PauseMenu_Space;
+    public struct PauseMenuActions
+    {
+        private @Controls m_Wrapper;
+        public PauseMenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_PauseMenu_Escape;
+        public InputAction @Space => m_Wrapper.m_PauseMenu_Space;
+        public InputActionMap Get() { return m_Wrapper.m_PauseMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IPauseMenuActions instance)
+        {
+            if (m_Wrapper.m_PauseMenuActionsCallbackInterface != null)
+            {
+                @Escape.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnEscape;
+                @Space.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSpace;
+                @Space.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSpace;
+                @Space.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSpace;
+            }
+            m_Wrapper.m_PauseMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
+                @Space.started += instance.OnSpace;
+                @Space.performed += instance.OnSpace;
+                @Space.canceled += instance.OnSpace;
+            }
+        }
+    }
+    public PauseMenuActions @PauseMenu => new PauseMenuActions(this);
     public interface IGameplayActions
     {
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnUp(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
+        void OnSpace(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
+    }
+    public interface IPauseMenuActions
+    {
+        void OnEscape(InputAction.CallbackContext context);
         void OnSpace(InputAction.CallbackContext context);
     }
 }

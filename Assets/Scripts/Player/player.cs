@@ -29,12 +29,12 @@ public class player : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Enable();
+        controls.Gameplay.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        controls.Gameplay.Disable();
     }
 
     private void Start()
