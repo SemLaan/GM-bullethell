@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BulletManager : MonoBehaviour
 {
     [SerializeField] private GameObject basicBulletPrefab;
+    [Header("Bullet patterns")]
+    [SerializeField] private bool row;
+    [SerializeField] private bool rowWithHole;
     [Header("Bullets per second")]
     [SerializeField] private float maxBulletDifficulty;
     [Header("Bullet patterns per second")]
@@ -22,7 +26,10 @@ public class BulletManager : MonoBehaviour
         turretManager = FindObjectOfType<TurretManager>();
         mapController = FindObjectOfType<MapController>();
         bulletPatterns = new List<IPattern>();
-        bulletPatterns.Add(new RowPattern());
+        if (row)
+            bulletPatterns.Add(new RowPattern());
+        if (rowWithHole)
+            bulletPatterns.Add(new RowWithHolePattern());
     }
 
     private void FixedUpdate()
@@ -44,7 +51,7 @@ public class BulletManager : MonoBehaviour
         if (patternTimer >= 2f / patternDifficulty)
         {
             patternTimer -= 2f / patternDifficulty;
-            bulletPatterns[0].CreateBulletPattern(6, basicBulletPrefab, turretManager, mapController);
+            bulletPatterns[Random.Range(0, bulletPatterns.Count)].CreateBulletPattern(6, basicBulletPrefab, turretManager, mapController);
         }
     }
 
