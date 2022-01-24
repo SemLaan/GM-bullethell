@@ -19,7 +19,7 @@ public class player : MonoBehaviour
     private void Awake()
     {
         mapController = FindObjectOfType<MapController>();
-        gridPosition = new Vector2Int(10, 5);
+        gridPosition = new Vector2Int(8, 5);
         controls = new Controls();
         controls.Gameplay.Up.performed += _ => Move(Direction.up);
         controls.Gameplay.Down.performed += _ => Move(Direction.down);

@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour
 {
-    [SerializeField] private string levelNumber;
+    public string levelNumber;
     [SerializeField] private Transform progressBarScaler;
     [SerializeField] private int progressBarSizeInPixels;
     [SerializeField] private float levelDuration = 20;
     private float timeSinceStart = 0f;
+    private SceneTracker sceneTracker;
+
+    private void Awake()
+    {
+        sceneTracker = FindObjectOfType<SceneTracker>();
+    }
 
     private void FixedUpdate()
     {
@@ -18,6 +24,7 @@ public class WinCondition : MonoBehaviour
         // Checking if the player won
         if (timeSinceStart > levelDuration)
         {
+            sceneTracker.previousLevel = "Level" + levelNumber;
             SceneManager.LoadScene("WonLevel" + levelNumber);
         }
     }

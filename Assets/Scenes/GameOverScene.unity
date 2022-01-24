@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 1878706591}
   - component: {fileID: 1878706590}
   m_Layer: 0
-  m_Name: MainMenuController
+  m_Name: GameOverMenuController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,10 +664,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1878706589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a1b348a0a41ff449e6fbcb7543c623, type: 3}
+  m_Script: {fileID: 11500000, guid: 7689fb72e5b44f94d8b43c378f3bef76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplaySceneName: GameplayScene
 --- !u!4 &1878706591
 Transform:
   m_ObjectHideFlags: 0

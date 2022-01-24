@@ -12,11 +12,13 @@ public class PlayerHealth : MonoBehaviour
     private AudioSource getHitSound;
     private float invincibilityStart = -10f;
     private int health;
+    private SceneTracker sceneTracker;
 
     private void Awake()
     {
         health = healthDisplay.Length;
-        getHitSound = GetComponent<AudioSource>();
+        getHitSound = GetComponent<AudioSource>(); 
+        sceneTracker = FindObjectOfType<SceneTracker>();
     }
 
     public void RemoveHealth(int amount)
@@ -39,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
+        sceneTracker.previousLevel = "Level" + FindObjectOfType<WinCondition>().levelNumber;
         SceneManager.LoadScene(gameOverSceneName);
     }
 }
