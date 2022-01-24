@@ -12,6 +12,7 @@ public class WonLevelMenu : MonoBehaviour
     {
         controls = new Controls();
         controls.Gameplay.Space.performed += _ => StartGame();
+        controls.Gameplay.Escape.performed += _ => QuitGame();
     }
 
     private void OnEnable()
@@ -27,5 +28,10 @@ public class WonLevelMenu : MonoBehaviour
     private void StartGame()
     {
         SceneManager.LoadScene("Level" + nextLevelNumber);
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 }
