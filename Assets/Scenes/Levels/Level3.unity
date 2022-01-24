@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddb3475c89d58849943848a32892ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicBulletPrefab: {fileID: 3856939504876619116, guid: be674605be85f6a4fa9c06dd1fffa64e, type: 3}
+  basicBulletPrefab: {fileID: 9117621398162187877, guid: 5fcab59c5c601f2409148655f9ca0b50, type: 3}
   row: 1
   rowWithHole: 1
   cheeseGrater: 1
