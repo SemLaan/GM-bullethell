@@ -9,6 +9,7 @@ public class BulletManager : MonoBehaviour
     [Header("Bullet patterns")]
     [SerializeField] private bool row;
     [SerializeField] private bool rowWithHole;
+    [SerializeField] private bool cheeseGrater;
     [Header("Bullets per second")]
     [SerializeField] private float maxBulletDifficulty;
     [Header("Bullet patterns per second")]
@@ -30,6 +31,8 @@ public class BulletManager : MonoBehaviour
             bulletPatterns.Add(new RowPattern());
         if (rowWithHole)
             bulletPatterns.Add(new RowWithHolePattern());
+        if (cheeseGrater)
+            bulletPatterns.Add(new CheeseGraterPattern());
     }
 
     private void FixedUpdate()

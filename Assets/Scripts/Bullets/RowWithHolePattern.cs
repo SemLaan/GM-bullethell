@@ -19,6 +19,7 @@ public class RowWithHolePattern : IPattern
         {
             wall = Random.value > 0.5 ? Direction.left : Direction.right;
         }
+        // Randomizing where on the wall the row is going to be
         int startOfRow;
         if (wall == Direction.up || wall == Direction.down) // if wall is up or down
         {
@@ -30,6 +31,7 @@ public class RowWithHolePattern : IPattern
             int wallLength = mapController.mapSizeInTiles.y;
             startOfRow = Random.Range(0, wallLength - bullets + 1);
         }
+        // Creating the bullets
         for (int i = startOfRow; i < startOfRow + bullets; i++)
         {
             if (i != Mathf.Floor(bullets / 2) + startOfRow)
