@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicBulletPrefab: {fileID: 2325366041715089619, guid: 2612184bf4ceed947892424498d690b3, type: 3}
-  row: 0
+  row: 1
   rowWithHole: 1
   cheeseGrater: 1
   maxBulletDifficulty: 1.5
