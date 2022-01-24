@@ -12,6 +12,7 @@ public class VolumeSlider : MonoBehaviour
 
     private void Awake()
     {
+        AudioListener.volume = 0.5f;
         float sliderStartPosition = AudioListener.volume * sliderSize;
         slider.localPosition = new Vector3(sliderStartPosition, 0);
         getHitSound = GetComponent<AudioSource>();
