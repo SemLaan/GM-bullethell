@@ -13,7 +13,7 @@ public enum Direction
 public class player : MonoBehaviour
 {
     private MapController mapController;
-    private Controls controls;
+    [HideInInspector] public Controls controls;
     private Vector2Int gridPosition;
 
     private void Awake()
