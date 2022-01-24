@@ -11,6 +11,7 @@ public class ExplodingBullet : MonoBehaviour
     [SerializeField] private float flashingSpeed = 10f;
     [SerializeField] private Color flashingColor;
     [SerializeField] private Color notFlashingColor;
+    [SerializeField] private float bulletSpeed;
     private SpriteRenderer flashingRenderer;
     private float timeSinceExistance = 0f;
     private float flashingTimer = 0f;
@@ -22,6 +23,12 @@ public class ExplodingBullet : MonoBehaviour
         explosionTime = Random.Range(minExplosionTime, maxExplosionTime);
         flashingRenderer = flashingObject.GetComponent<SpriteRenderer>();
         flashingRenderer.color = notFlashingColor;
+    }
+
+    private void Start()
+    {
+        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody.velocity = rigidbody.velocity.normalized * bulletSpeed;
     }
 
     private void FixedUpdate()

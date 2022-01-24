@@ -219,8 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashingObject: {fileID: 467919950374463938}
   explosionPrefab: {fileID: 8927003112378867009, guid: acea0a3fe0aa2bc4a9026a0985da3df1, type: 3}
-  minExplosionTime: 1
-  maxExplosionTime: 2
-  flashingSpeed: 10
+  minExplosionTime: 1.5
+  maxExplosionTime: 4
+  flashingSpeed: 8
   flashingColor: {r: 0.8396226, g: 0.122774996, b: 0.122774996, a: 1}
   notFlashingColor: {r: 1, g: 1, b: 1, a: 1}
+  bulletSpeed: 25
