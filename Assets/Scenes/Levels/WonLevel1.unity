@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 203308931}
   - component: {fileID: 203308930}
   m_Layer: 0
-  m_Name: GetHit
+  m_Name: Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3110108db74c72d449c6c2e6ee31733b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 76e21157025910b4a87d1cb590e30ee6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
