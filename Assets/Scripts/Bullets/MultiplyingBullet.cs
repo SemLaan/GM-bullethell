@@ -15,6 +15,7 @@ public class MultiplyingBullet : BaseBullet
     {
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = rigidbody.velocity.normalized * bulletSpeed;
+        maxExistanceTime = 15;
     }
 
     protected override void FixedUpdate()

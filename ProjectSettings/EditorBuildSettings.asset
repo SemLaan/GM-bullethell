@@ -18,6 +18,81 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level2.unity
     guid: 707aa7be522a74544802ce97c098881b
   - enabled: 1
-    path: Assets/Scenes/Levels/WonLevel1.unity
+    path: Assets/Scenes/Levels/WonLevels/WonLevel1.unity
     guid: b660e574c4dce904fb656d79ebb4f337
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: cb7ba0795f66e68478702dece8c00c08
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 91c1d7700d63c9043be3c227ccacdfa8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: 48408ccd65a6d1645beae88065a70b7a
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel2.unity
+    guid: ca92359d748ff844ba4d04528086118e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level6.unity
+    guid: 2922fba2a8d2b4443813c0660a61f3f1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level7.unity
+    guid: 63606cdee82023440aaa146887b26000
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel3.unity
+    guid: f0026962d37dd674a9395a7470cfd643
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel4.unity
+    guid: e3e304aeecbc48c46909ab9a714b8f1e
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel5.unity
+    guid: 16e695ba3f7568f46af6fb989ee8073a
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel6.unity
+    guid: bdd05b40eafa9b7408aee3e461056718
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel7.unity
+    guid: 783cb65fd085b9e4384be45883005b2b
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel8.unity
+    guid: 3f7839b454749dc44adb109e7d3e9c63
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel9.unity
+    guid: ad8a46cb75b9fc144adb7d776b14ae13
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel10.unity
+    guid: 8199f04ff06ebb44087ee761a2f5b823
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel11.unity
+    guid: d41dd906b3622ac42b667ad7a6b0ff57
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel12.unity
+    guid: d8717041e49576044a552431dd305fb9
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel13.unity
+    guid: 60ddb10ce91a5c04892aca856d112671
+  - enabled: 1
+    path: Assets/Scenes/Levels/WonLevels/WonLevel14.unity
+    guid: ba0d24804ec1f3e45be19eef0f04a261
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level8.unity
+    guid: d2c7a04e4885c264a9ff26240a040664
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level9.unity
+    guid: dbb8b25840dfb4c489210ba40a307adf
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level10.unity
+    guid: 8ee845a7959a39240bf2f5267fb2cd1e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level11.unity
+    guid: afa44404bd139f149af4f8c2f3e72a35
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level12.unity
+    guid: 9c0a15c4614d2c7498d096d1953675d6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level13.unity
+    guid: e10a06fc63fdab646bacc3c6a19bff41
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level14.unity
+    guid: 225e1ae504d45cb439f20eec7713e87c
   m_configObjects: {}

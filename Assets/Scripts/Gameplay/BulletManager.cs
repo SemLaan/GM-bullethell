@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     [SerializeField] private GameObject basicBulletPrefab;
+    [SerializeField] private GameObject otherBulletPrefab;
     [Header("Bullet patterns")]
     [SerializeField] private bool row;
     [SerializeField] private bool rowWithHole;
@@ -48,7 +49,7 @@ public class BulletManager : MonoBehaviour
         if (bulletTimer >= 1f / bulletDifficulty)
         {
             bulletTimer -= 1f / bulletDifficulty;
-            turretManager.LaunchBullet(basicBulletPrefab);
+            turretManager.LaunchBullet(otherBulletPrefab);
         }
         // Checking if a pattern should be launched
         if (patternTimer >= 2f / patternDifficulty)
